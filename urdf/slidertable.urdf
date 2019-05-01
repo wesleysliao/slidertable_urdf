@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<robot name="slidertable">
+
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="orange">
+    <color rgba="1 0.58 0.28 1"/>
+  </material>
+
+  <link name="tabletop">
+    <visual>
+      <geometry>
+        <box size="1.22 1.22 0.025"/>
+      </geometry>
+      <material name="black"/>
+    </visual>
+  </link>
+
+  <link name="slider">
+    <visual>
+      <geometry>
+        <box size="0.3 0.6 0.025"/>
+      </geometry>
+      <material name="white"/>
+    </visual>
+  </link>
+
+  <joint name="tabletop_to_slider" type="prismatic">
+    <axis xyz="0 1 0"/>
+    <parent link="tabletop"/>
+    <child link="slider"/>
+	<origin xyz="0 0 0.025"/>
+    <limit effort="1000.0" lower="-0.3" upper="0.3" velocity="0.5"/>
+  </joint>
+
+  <link name="force_sensor_1">
+    <visual>
+      <geometry>
+        <cylinder length="0.022" radius="0.02"/>
+      </geometry>
+
+      <material name="orange"/>
+    </visual>
+  </link>
+
+  <joint name="slider_to_fs1" type="fixed">
+    <parent link="slider"/>
+    <child link="force_sensor_1"/>
+    <origin xyz="0 0.25 0.025"/>
+  </joint>
+</robot>

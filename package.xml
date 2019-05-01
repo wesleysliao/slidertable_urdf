@@ -1,0 +1,20 @@
+<package>
+  <name>slidertable_urdf</name>
+  <version>0.0.0</version>
+
+  <description>A URDF file for a human collaboration experiment table</description>
+  <author email="wesliao@iu.edu">Wesley Liao</author>
+
+  <maintainer email="wesliao@iu.edu">Wesley Liao</maintainer>
+
+  <license>todo</license>
+  <url></url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roslaunch</build_depend>
+  <run_depend>joint_state_publisher</run_depend>
+  <run_depend>robot_state_publisher</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>xacro</run_depend>
+
+</package>
