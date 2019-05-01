@@ -50,6 +50,6 @@
   <joint name="slider_to_fs1" type="fixed">
     <parent link="slider"/>
     <child link="force_sensor_1"/>
-    <origin xyz="0 0.25 0.025"/>
+    <origin rpy="3.14 0 -1.57" xyz="0 0.25 0.025"/>
   </joint>
 </robot>

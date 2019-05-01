@@ -11,4 +11,6 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
+  <node name="fse103_node_1" pkg="ros_fse103" type="fse103_node.py" args="/dev/ttyACM0 20 force_sensor_1"/>
+
 </launch>
