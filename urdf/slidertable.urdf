@@ -33,7 +33,7 @@
     <axis xyz="0 1 0"/>
     <parent link="tabletop"/>
     <child link="slider"/>
-	<origin xyz="0 0 0.025"/>
+	<origin rpy="0 0 3.14" xyz="0 0 0.025"/>
     <limit effort="1000.0" lower="-0.3" upper="0.3" velocity="0.5"/>
   </joint>
 
@@ -50,6 +50,6 @@
   <joint name="slider_to_fs1" type="fixed">
     <parent link="slider"/>
     <child link="force_sensor_1"/>
-    <origin rpy="3.14 0 -1.57" xyz="0 0.25 0.025"/>
+    <origin rpy="3.14 0 1.57" xyz="0 -0.25 0.025"/>
   </joint>
 </robot>
