@@ -10,12 +10,12 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
-  <node name="fse103_node_1" pkg="ros_fse103" type="fse103_node.py" args="/dev/ttyACM0 20 force_sensor_1"/>
-
   <node name="phidgets_high_speed_encoder" pkg="phidgets_high_speed_encoder" type="phidgets_high_speed_encoder">
     <param name="serial_name" value="528681" type="str" />
-    <param name="joint0_name" value="tabletop_to_slider" type="str" />
+    <param name="joint0_name" value="baseboard_to_encoders" type="str" />
     <param name="joint0_tick2rad" value="0.00127" type="double" />
+    <param name="joint1_name" value="encoders_to_slider" type="str" />
+    <param name="joint1_tick2rad" value="0.00127" type="double" />
     <param name="PUBLISH_RATE" value="20" type="int"/>
   </node>
 </launch>

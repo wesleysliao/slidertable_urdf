@@ -2,7 +2,13 @@
 <robot name="slidertable">
 
   <material name="black">
-    <color rgba="0 0 0 1"/>
+    <color rgba="0.1 0.1 0.1 1"/>
+  </material>
+  <material name="darkgrey">
+    <color rgba="0.2 0.2 0.2 1"/>
+  </material>
+  <material name="beige">
+    <color rgba=".78 .78 .63 1"/>
   </material>
   <material name="white">
     <color rgba="1 1 1 1"/>
@@ -20,36 +26,80 @@
     </visual>
   </link>
 
+  <link name="baseboard">
+    <visual>
+      <geometry>
+        <box size="0.1778 0.4826 0.01905"/>
+      </geometry>
+      <material name="beige"/>
+    </visual>
+  </link>
+
   <link name="slider">
     <visual>
       <geometry>
-        <box size="0.3 0.6 0.025"/>
+        <box size="0.1524 0.762 0.01905"/>
       </geometry>
-      <material name="white"/>
+      <material name="beige"/>
     </visual>
   </link>
 
-  <joint name="tabletop_to_slider" type="prismatic">
-    <axis xyz="0 1 0"/>
+  <link name="encoders">
+  </link>
+
+  <joint name="tabletop_to_baseboard" type="fixed">
     <parent link="tabletop"/>
-    <child link="slider"/>
-	<origin rpy="0 0 3.14" xyz="0 0 0.025"/>
+    <child link="baseboard"/>
+    <origin rpy="0 0 3.14" xyz="0 0 0.022"/>
+  </joint>
+
+  <joint name="baseboard_to_encoders" type="prismatic">
+    <axis xyz="0 1 0"/>
+    <parent link="baseboard"/>
+    <child link="encoders"/>
+	<origin rpy="0 0 0" xyz="0 0 0"/>
     <limit effort="1000.0" lower="-0.3" upper="0.3" velocity="0.5"/>
   </joint>
 
-  <link name="force_sensor_1">
+
+  <joint name="encoders_to_slider" type="prismatic">
+    <axis xyz="0 1 0"/>
+    <parent link="encoders"/>
+    <child link="slider"/>
+	<origin rpy="0 0 0" xyz="0 0 0.028575"/>
+    <limit effort="1000.0" lower="-0.3" upper="0.3" velocity="0.5"/>
+  </joint>
+
+  <link name="ball_knob_1">
     <visual>
       <geometry>
-        <cylinder length="0.022" radius="0.02"/>
+        <sphere radius="0.024"/>
       </geometry>
 
-      <material name="orange"/>
+      <material name="darkgrey"/>
     </visual>
   </link>
 
-  <joint name="slider_to_fs1" type="fixed">
+  <joint name="slider_to_knob1" type="fixed">
     <parent link="slider"/>
-    <child link="force_sensor_1"/>
-    <origin rpy="3.14 0 1.57" xyz="0 -0.25 0.025"/>
+    <child link="ball_knob_1"/>
+    <origin rpy="3.14 0 1.57" xyz="0 -0.43 0.0381"/>
+  </joint>
+
+
+  <link name="ball_knob_2">
+    <visual>
+      <geometry>
+        <sphere radius="0.024"/>
+      </geometry>
+
+      <material name="darkgrey"/>
+    </visual>
+  </link>
+
+  <joint name="slider_to_knob2" type="fixed">
+    <parent link="slider"/>
+    <child link="ball_knob_2"/>
+    <origin rpy="3.14 0 -1.57" xyz="0 0.43 0.0381"/>
   </joint>
 </robot>
