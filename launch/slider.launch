@@ -10,16 +10,9 @@
   <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher" />
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
-  <node name="phidgets_high_speed_encoder" pkg="phidgets_high_speed_encoder" type="phidgets_high_speed_encoder">
-    <param name="serial_name" value="528681" type="str" />
-    <param name="joint0_name" value="baseboard_to_encoders" type="str" />
-    <param name="joint0_tick2rad" value="0.001" type="double" />
-    <param name="joint1_name" value="encoders_to_slider" type="str" />
-    <param name="joint1_tick2rad" value="0.001" type="double" />
-    <param name="PUBLISH_RATE" value="20" type="int"/>
-  </node>
+  <node name="ffb_slider" pkg="ros_ffb_slider" type="ffb_slider_node.py"/>
 
   <node name="phidgets_bridge" pkg="phidgets_bridge_py" type="bridge.py" args="1 load_cell_1 ball_knob_1 132435 0.97904 2 load_cell_2 ball_knob_2 133280 0.69482"/>
 
-  <node name="eggdroptask" pkg="cursortargettask" type="eggdrop.py"/>
+  <!-- <node name="eggdroptask" pkg="cursortargettask" type="eggdrop.py"/> -->
 </launch>

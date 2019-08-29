@@ -44,27 +44,16 @@
     </visual>
   </link>
 
-  <link name="encoders">
-  </link>
-
   <joint name="tabletop_to_baseboard" type="fixed">
     <parent link="tabletop"/>
     <child link="baseboard"/>
     <origin rpy="0 0 3.14" xyz="0 0 0.022"/>
   </joint>
 
-  <joint name="baseboard_to_encoders" type="prismatic">
+
+  <joint name="baseboard_to_slider" type="prismatic">
     <axis xyz="0 1 0"/>
     <parent link="baseboard"/>
-    <child link="encoders"/>
-	<origin rpy="0 0 0" xyz="0 0 0"/>
-    <limit effort="1000.0" lower="-0.3" upper="0.3" velocity="0.5"/>
-  </joint>
-
-
-  <joint name="encoders_to_slider" type="prismatic">
-    <axis xyz="0 1 0"/>
-    <parent link="encoders"/>
     <child link="slider"/>
 	<origin rpy="0 0 0" xyz="0 0 0.028575"/>
     <limit effort="1000.0" lower="-0.3" upper="0.3" velocity="0.5"/>
