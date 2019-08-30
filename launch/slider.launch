@@ -11,6 +11,7 @@
   <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true" />
 
   <node name="ffb_slider" pkg="ros_ffb_slider" type="ffb_slider_node.py"/>
+  <node name="sim_slider" pkg="ros_ffb_slider" type="spring_sim_node.py"/>
 
   <node name="phidgets_bridge" pkg="phidgets_bridge_py" type="bridge.py" args="1 load_cell_1 ball_knob_1 132435 0.97904 2 load_cell_2 ball_knob_2 133280 0.69482"/>
 

@@ -17,6 +17,10 @@
     <color rgba="1 0.58 0.28 1"/>
   </material>
 
+  <material name="simred">
+    <color rgba="1 0 0 0.5"/>
+  </material>
+
   <link name="tabletop">
     <visual>
       <geometry>
@@ -44,6 +48,15 @@
     </visual>
   </link>
 
+  <link name="simslider">
+    <visual>
+      <geometry>
+        <box size="0.1524 0.762 0.01905"/>
+      </geometry>
+      <material name="simred"/>
+    </visual>
+  </link>
+
   <joint name="tabletop_to_baseboard" type="fixed">
     <parent link="tabletop"/>
     <child link="baseboard"/>
@@ -55,6 +68,14 @@
     <axis xyz="0 1 0"/>
     <parent link="baseboard"/>
     <child link="slider"/>
+	<origin rpy="0 0 0" xyz="0 0 0.028575"/>
+    <limit effort="1000.0" lower="-0.3" upper="0.3" velocity="0.5"/>
+  </joint>
+
+  <joint name="baseboard_to_simslider" type="prismatic">
+    <axis xyz="0 1 0"/>
+    <parent link="baseboard"/>
+    <child link="simslider"/>
 	<origin rpy="0 0 0" xyz="0 0 0.028575"/>
     <limit effort="1000.0" lower="-0.3" upper="0.3" velocity="0.5"/>
   </joint>
